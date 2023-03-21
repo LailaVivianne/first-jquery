@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circulo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid black;
+        }
+
+        button {
+            width: 60px;
+            height: 40px;
+            background-color: blue;
+            border: 0px solid white;
+            border-radius: 20px;
+            color: white;
+            margin-left: 39%;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="circulo"></div> 
+        <button>undo</button>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.slim.js"></script>
+    <script>
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+  
+        $(".circulo").click(function () {
+            let r = getRandomIntInclusive(0, 255);
+            let g = getRandomIntInclusive(0, 255);
+            let b = getRandomIntInclusive(0, 255);
+            $(this).css("border" , "transparent");
+            $(this).css("background-color" , "rgba(" + r + ", " + g +", " + b + ", 1)")
+        });
+
+        $("button").click(function () {
+            $(".circulo").css("border" , "5px solid black");
+            $(".circulo").css("background-color" , "transparent");
+        })
+        
+        
+    </script>
+    
+</body>
+</html>
